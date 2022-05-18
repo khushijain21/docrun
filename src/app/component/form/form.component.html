@@ -1,0 +1,50 @@
+<form  class="add-form"  ngNativeValidate (ngSubmit)="onSubmit()">
+    <div class="form-control">
+      <label for="text">First Name</label>
+      <input
+        type="text"
+        name="firstName"
+        [(ngModel)]="firstName"
+        id="firstName"
+        placeholder="first Name"
+        required
+      />
+    </div>
+    <div class="form-control">
+      <label for="day">Last Name</label>
+      <input
+        type="text"
+        name="lastName"
+        [(ngModel)]="lastName"
+        id="lastName"
+        placeholder="Last Name"
+        required
+      />
+    </div>
+    <div class="form-control">
+        <label for="day">Job Title</label>
+        <input
+          type="text"
+          name="jobTitleName"
+          [(ngModel)]="jobTitleName"
+          id="jobTitleName"
+          placeholder="Job Title"
+          required
+        />
+      </div>
+      <div class="form-control">
+        <label for="day">Email</label>
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          id="email"
+          placeholder="Email"
+          required
+        />
+      </div>
+    <button type="submit" class="btn btn-block">
+        Add Employee
+    </button>
+
+  </form>

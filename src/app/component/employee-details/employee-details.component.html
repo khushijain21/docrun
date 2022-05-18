@@ -1,0 +1,13 @@
+<app-form (onAddEmployee)="addEmployee($event)"></app-form>
+<div *ngFor="let e of employee" class="emp">
+    <h4>
+        {{ e.firstName }}
+        {{e.lastName }}
+    </h4>
+    <p>
+        {{e.jobTitleName}}
+    </p>
+    <span [ngStyle]="{color:'red'}" (click)="onDelete(e)">
+        X
+    </span>
+</div>
