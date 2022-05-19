@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/Employee';
-import { Employees } from 'src/app/mock-employee';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
   selector: 'app-employee-details',
@@ -9,21 +9,29 @@ import { Employees } from 'src/app/mock-employee';
 })
 export class EmployeeDetailsComponent implements OnInit {
   
-  employee : Employee[] = Employees
-  constructor() { }
+  employee : Employee[] = []
+
+  constructor(private employeeService:EmployeeService) {
+   }
 
   ngOnInit(): void {
+    this.employeeService.getEmployee().subscribe((emp)=>{
+      this.employee=emp;
+    })
   }
 
   onDelete(e:Employee){
-  let index = this.employee.findIndex(user => user.userId===e.userId)
-  if (index != -1) {
-    this.employee.splice(index, 1);
-  }
+  this.employeeService
+      .deleteEmployee(e)
+      .subscribe(
+        () => (this.employee = this.employee.filter((t) => t.id !== e.id))
+      )
   }
   
-  addEmployee(employee:Employee){
-    this.employee.push(employee)
-    console.log(this.employee)
+  addEmployee(e:Employee){
+
+    this.employeeService.addEmployee(e).subscribe((emp)=>{
+      this.employee.push(emp);
+    })
   }
 }

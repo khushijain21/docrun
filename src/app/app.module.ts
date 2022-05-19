@@ -7,6 +7,7 @@ import { HeaderComponent } from './component/header/header.component';
 import { ButtonComponent } from './component/button/button.component';
 import { EmployeeDetailsComponent } from './component/employee-details/employee-details.component';
 import { FormComponent } from './component/form/form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FormComponent } from './component/form/form.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

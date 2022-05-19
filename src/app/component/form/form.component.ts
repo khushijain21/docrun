@@ -17,8 +17,7 @@ export class FormComponent implements OnInit {
   constructor() {
    }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit(){
     this.userId= this.randomString(10, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
