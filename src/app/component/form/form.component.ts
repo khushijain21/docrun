@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output,Input, EventEmitter } from '@angular/core';
 import { Employee } from 'src/app/Employee';
 
 @Component({
@@ -9,15 +9,20 @@ import { Employee } from 'src/app/Employee';
 export class FormComponent implements OnInit {
   
   @Output() onAddEmployee:EventEmitter<Employee> = new EventEmitter()
-  firstName! : string
+
+  firstName! : string 
   lastName !: string
   jobTitleName!: string
   email!: string
   userId! : string
+
   constructor() {
+  
    }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
   onSubmit(){
     this.userId= this.randomString(10, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');

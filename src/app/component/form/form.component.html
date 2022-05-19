@@ -1,11 +1,13 @@
 <form  class="add-form"  ngNativeValidate (ngSubmit)="onSubmit()">
     <div class="form-control">
       <label for="text">First Name</label>
+      <span> {{firstName}}</span>
       <input
         type="text"
         name="firstName"
         [(ngModel)]="firstName"
         id="firstName"
+        
         placeholder="first Name"
         required
       />
@@ -46,5 +48,5 @@
     <button type="submit" class="btn btn-block">
         Add Employee
     </button>
-
+    
   </form>

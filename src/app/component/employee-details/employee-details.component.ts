@@ -8,7 +8,14 @@ import { EmployeeService } from 'src/app/services/employee.service';
   styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent implements OnInit {
-  
+  details : Employee ={
+    userId: "",
+    firstName:"",
+    lastName:"",
+    jobTitleName:"",
+    emailAddress:""
+  }
+
   employee : Employee[] = []
 
   constructor(private employeeService:EmployeeService) {
@@ -33,5 +40,13 @@ export class EmployeeDetailsComponent implements OnInit {
     this.employeeService.addEmployee(e).subscribe((emp)=>{
       this.employee.push(emp);
     })
+  }
+
+  onEdit(e:Employee){
+    this.details.userId = e.userId
+    this.details.firstName = e.firstName
+    this.details.lastName = e.lastName
+    this.details.jobTitleName = e.jobTitleName
+    this.details.emailAddress = e.emailAddress
   }
 }
